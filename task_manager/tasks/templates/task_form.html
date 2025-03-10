@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create/Update Task</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <div class="navbar-custom">
+        <header class="shadow-sm container-fluid d-flex justify-content-between">
+            <!-- <button class="btn-toggle" id="burger">
+                <i class="bi bi-list"></i>
+            </button> -->
+            <div class="container-fluid d-flex justify-content-between">
+                <a href="../task-manager/task-list/" class="logo-text">TASK MANAGER
+                    <!-- <img src="" alt="" width="36px" height="36px"> -->
+                </a>
+            
+                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-end">
+                    <ul class="text-small">
+                        <li>
+                            <a href="/task-manager/view-list/" class="nav-link button view">View Display</a>
+                            
+                        </li> 
+                    </ul>
+                
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="content-page d-flex flex-column px-3" style="padding-top: 40px;">
+        
+        <form class="form style-1" method="POST">
+            <div class="page-title-box" style="width: fit-content!important;">
+                <h1>{% if form.task.id %}Edit Task{% else %}Create Task{% endif %}</h1>
+            </div>
+            {% csrf_token %}
+            
+            <div class="label-container style-1">
+                <label for="title" class="label style-1">Title:</label>
+            </div>
+            <input type="text" name="title" id="title" value="{{ task.title }}" class="input style-1" required>
+            <br>
+            <div class="label-container style-1">
+                <label for="description" class="label style-1">Description:</label>
+            </div>
+            <input type="text" name="description" id="description" value="{{ task.description }}" class="input style-1" required>
+            <br>
+            <div class="label-container style-1">
+                <label for="due_date" class="label style-1">Due date</label>
+            </div>
+            <!-- <p>Test echo: {{task.due_date}}</p> -->
+            <input type="date" name="due_date" id="due_date" value="{{ task.due_date |date:'Y-m-d' }}" class="input style-1" required>
+            <br>
+            <input type="hidden" name="status" id="status" value="{{ task.status }}" class="input style-1" required>
+      
+            <br>
+            <button type="submit" class="button add">Save</button>
+        </form>
+
+    </div>
+    
+</body>
+
+</html>

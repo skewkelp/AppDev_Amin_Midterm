@@ -1,0 +1,375 @@
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none; /* Remove underline */
+    color: black;
+}
+
+:root{
+    --brand-color: rgba(44, 59, 20);
+    --logo-text-color: white;
+    --logo-text-font-size: 24px;
+    --topbar-height: 70px;
+    --body-color:  rgb(235, 243, 252);
+
+    --sidebar-width: 260px;
+    --sidebar-text-font-size: 16px; 
+    --sidebar-text-font-weight: 500;
+    --sidebar-menu-item-color: #8391a2;
+    --sidebar-menu-hover-color: #bccee4;
+    --sidebar-menu-active-color: #fff;
+    
+    --btn-color: #000000;
+    --btn-border-color:#000000;
+    --btn-font-size: 0.875rem;
+    --btn-padding-y: 0.25rem;
+    --btn-padding-x: 0.5rem;
+    --btn-border-radius-sm: 0.25rem;
+    --btn-inactive-background-color: #fff;
+    --btn-hover-background-color: #a1a9b1;
+}
+
+
+.logo-text{
+    font-size: var(--logo-text-font-size);
+    text-decoration: none;
+    color:var(--logo-text-color);
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-fluid {
+    width: 100%; /* Full width */
+    padding-right: 15px; /* Default Bootstrap padding */
+    padding-left: 15px; /* Default Bootstrap padding */
+    margin-right: auto; /* Center alignment */
+    margin-left: auto; /* Center alignment */
+}
+
+.d-flex {
+    display: flex; /* Enable Flexbox */
+    align-items: center; /* Vertically centers the text */
+}
+
+.justify-content-between {
+    justify-content: space-between!important; /* Space between items */
+}
+
+.justify-content-center {
+    justify-content: center; 
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075); /* Small shadow effect */
+}
+
+.navbar-custom{
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.navbar-custom header {
+    background-color:var(--brand-color);
+    height: var(--topbar-height);
+    display: flex;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;   /* Stack children vertically */
+}
+
+.flex-row {
+    flex-direction: row;   /* Stack children vertically */
+}
+
+.flex-shrink-0 {
+    flex-shrink: 0;          /* Prevent the item from shrinking */
+}
+
+.nav-pills {
+    display: flex;                  /* Make the container a flexbox */
+    flex-direction: column;         /* Stack children vertically */
+    list-style-type: none;          /* Remove default list styling */
+    padding: 0;                     /* Remove default padding */
+    margin: 0;                      /* Remove default margin */
+}
+
+.nav-pills .nav-link {
+    padding: 0.5rem 1rem;          /* Add padding to links */
+    text-decoration: none;          /* Remove underline from links */
+    color: #007bff;                 /* Default link color */
+}
+
+.nav-pills .nav-link.active {
+    background-color: #007bff;     /* Active link background */
+    color: black;                   /* Active link text color */
+}
+
+.nav-item {
+    display: inline-block; /* Align items in a row */
+    padding: 10px 15px; /* Spacing around text */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from links */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Hover effect for nav items */
+.nav-item:hover {
+    background-color: #00a6ff; /* Change background on hover */
+}
+
+/* Optional active state */
+.nav-item.active {
+    background-color: #007acc; /* Darker variant for active item */
+}
+
+.mb-auto {
+    margin-bottom: auto;            /* Automatically adjust bottom margin */
+}
+
+.px-3 {
+    padding-left: 1rem;  /* Horizontal padding on the left */
+    padding-right: 1rem; /* Horizontal padding on the right */
+}
+
+.sidebar{
+    display: flex;
+    z-index: 1000;
+    left: 0;
+    position: fixed;
+    min-height: 100vh;
+    width: var(--sidebar-width);
+    background-color: var(--brand-color);
+    transition: width 0.3s ease; 
+    transition: all 0.35 ease-in-out;
+}
+
+.side-nav-title {
+    color: var(--sidebar-menu-item-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 10px 10px;
+}
+
+.content-page{
+    background-color: var(--body-color);
+    min-height: calc(100vh - var(--topbar-height));
+    /* margin-left: var(--sidebar-width); */
+    padding: 18px 0 0;
+}
+
+.page-title-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    margin: 0px 18px 21px;
+    padding: 0px 18px;
+    background-color: white;
+}
+
+.content{
+    display: flex;
+    padding: 0px 18px;
+}
+
+
+.text-small {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 40px;
+    font-size: 0.875rem;          /* Set font size to small */
+
+}
+
+.form.style-1{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px 40px 40px;
+    border: black solid 1px;
+    border-radius: 24px;
+    background-color: white;
+}
+.label-container.style-1{
+    display: flex;
+    width: 100%;
+}
+
+.label.style-1{
+    font-size: 16px;
+}
+
+.input.style-1{
+    width: 100%;
+    height: 20px;
+}
+
+.sidebar-button-text{
+    font-size: var(--sidebar-text-font-size) !important;
+    font-weight: var(--sidebar-text-font-weight) !important;
+    color:white;
+    padding: 20px;
+}
+
+.btn{
+    text-wrap: nowrap;
+    color: var(--btn-color);
+    border-color: var(--btn-border-color);
+    border-radius: var(--btn-border-radius-sm)!important;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    font-size: var(--btn-font-size) ;
+}.btn:hover{
+    background-color: var(--btn-hover-background-color);
+}
+
+
+.button{
+    padding: 10px 15px !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black; /* Text color */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s;
+}.button.view{
+    color: black;
+    background-color: #FFD700;
+    
+}.button.view:hover{
+    /* background-color: #FFC300; */
+    background-color: #DAA520;
+    
+}
+
+.button.add{
+    color: white;
+    background-color: green;
+}.button.add:hover{
+    background-color: darkgreen; 
+}   
+
+.button.edit{
+    background-color:  #00a6ff;
+}.button.edit:hover{
+    background-color: #007acc;
+}.button.edit a{
+    color: white !important;
+}
+
+.button.delete{
+    color: white;
+    background-color: red;
+}.button.delete:hover{
+    background-color: darkred; 
+}.button.delete a{
+    color: white !important;
+}
+
+
+.button.confirm{
+    color: white;
+    background-color: green !important;
+}.button.cancel:hover{
+    background-color: darkgreen;
+}
+
+.button.cancel{
+    background-color:  #d3d3d3;
+}.button.cancel:hover{
+    background-color: #b0b0b0; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+thead, tbody{
+    background-color: #f9f9f9; /* Optional: give the header a different background */
+}
+
+.indented {
+    text-indent: 30px; 
+}
+
+.add-section{
+    display: flex;
+    flex-direction: row;
+    gap: 4%;
+}
+
+.modal-feed{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+.alert-box{
+    display: flex;
+    position: fixed; /* Fixed positioning */
+    justify-content: center;
+    text-align: center;
+
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for element size */
+    background-color: rgba(255, 204, 0, 0.9); /* Semi-transparent background */
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    justify-items: center;
+    z-index: 1000; 
+}
+
+
+
+.modalEditBox{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+.edit-modal{
+    display: flex;
+    position: fixed; /* Fixed positioning */
+    justify-content: center;
+    text-align: center;
+
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for element size */
+    background-color: whitesmoke; /* Semi-transparent background */
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    justify-items: center;
+    z-index: 1000; 
+
+}

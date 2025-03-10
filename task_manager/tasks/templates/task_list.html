@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <div class="navbar-custom">
+        <header class="shadow-sm container-fluid d-flex justify-content-between">
+            <!-- <button class="btn-toggle" id="burger">
+                <i class="bi bi-list"></i>
+            </button> -->
+            <div class="container-fluid d-flex justify-content-between">
+                <a href="../task-manager/task-list/" class="logo-text">TASK MANAGER
+                    <!-- <img src="" alt="" width="36px" height="36px"> -->
+                </a>
+            
+                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-end">
+                    <ul class="text-small">
+                        <li>
+                            <a href="/task-manager/view-list/" class="nav-link button view">View Display</a>
+                            
+                        </li>
+                        <li>
+                            <a href="{% url 'task_create' %}" class="nav-link button add">Create New Task +</a>
+                        </li>
+                    </ul>
+                
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- <div class="sidebar flex-column flex-shrink-0" id="sidebar">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <div class="side-nav-title">
+                <li class="side-nav-title">Home</li>
+            </div>
+            <li class="nav-item">
+                <a href="{% url 'task_list' %}" class="nav-link">
+                    <i class="bi status-icon">
+                    </i>
+                    <span class="sidebar-button-text ms-2">Task Display</span>
+                </a>
+                
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'task_create' %}" class="nav-link">
+                <i class="bi status-icon">
+                    </i>
+                    <span class="sidebar-button-text ms-2">Create New Task</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div> -->
+
+    <div class="content-page px-3">
+        <div class="page-title-box">
+            <h1>TASK Display</h1>
+        </div>
+
+        <div class="content">
+            <table> 
+                <thead>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                <tbody>
+                    {% if tasks %}
+                        {% for task in tasks %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ task.id }}</td>
+                            <td>{{ task.title }}</td>
+                            <td>{{ task.description }}</td>
+                            <td>{{ task.due_date }}</td>
+                            <td>{{ task.status }}</td>
+                            <td>
+                                <!-- <button onClick="showEdit()" class="edit"><a href="" >Edit</a></button>  -->
+                                <button class="button edit"><a href="/task-manager/{{task.id}}/edit">Edit</a></button> 
+                                | 
+                                <button id="button" class="button delete"><a href="/task-manager/{{ task.id }}/delete">Delete</a></button>
+                            </td>
+              
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="7">No Task available</td>
+                        </tr>
+                    {% endif %}
+                    
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
