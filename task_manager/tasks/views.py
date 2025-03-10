@@ -68,6 +68,7 @@ def task_delete(request, id):
     if request.method == 'POST':
         task = Tasks.objects.get(id=id)
         task.delete()
+        return redirect('/task-manager/view-list')
 
     elif request.method == 'GET':
         return render(request,'task_confirm_delete.html', {'task': task})

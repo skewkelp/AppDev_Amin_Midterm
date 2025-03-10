@@ -35,7 +35,7 @@
         
         <form class="form style-1" method="POST">
             <div class="page-title-box" style="width: fit-content!important;">
-                <h1>{% if form.task.id %}Edit Task{% else %}Create Task{% endif %}</h1>
+                <h1>{% if task.id %}Edit Task{% else %}Create Task{% endif %}</h1>
             </div>
             {% csrf_token %}
             
